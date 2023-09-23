@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      .center-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        width: 500px;
+      }
+      .btn-lg {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 400px;
+   
+}
+    </style>
+  </head>
+  <body>
+    <div class="container center-box">
+      <form
+        #userForm="ngForm"
+        (ngSubmit)="userForm.form.valid && onSubmit(userForm)"
+      >
+          <div class="form-group mb-3">
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              [(ngModel)]="model.name"
+              #name="ngModel"
+              [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }"
+              required
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label>Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="model.email"
+              #email="ngModel"
+              [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }"
+              email
+              required
+            />
+            <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.errors.required">Email is required</div>
+              <div *ngIf="email.errors.email">Must be a valid email address</div>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label>Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              [(ngModel)]="model.password"
+              #password="ngModel"
+              [ngClass]="{ 'is-invalid': userForm.submitted && password.invalid }"
+              minlength="8"
+              required
+            />
+            <div
+              *ngIf="userForm.submitted && password.invalid"
+              class="invalid-feedback"
+            >
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">
+                Password should be at least 8 characters long
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label>Hobbies</label>
+            <select class="form-control" name="hobbies" [(ngModel)]="hobbies">
+              <option value="">Select an option</option>
+              <option *ngFor="let hoby of Hobbies" [value]="hoby">
+                {{ hoby }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg">Submit</button>
+          </div>
+        </form>
+      </div> 
+</body>
+</html>

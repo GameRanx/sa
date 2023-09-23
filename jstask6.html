@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border: 1px solid #dbdbdb;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-family: 'CursiveFont', cursive; /* Use your desired cursive font here */
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #f3f4f8;
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 14px;
+            display: block;
+            text-align: left;
+            margin-left: 10px;
+            margin-bottom: 5px;
+            color: #8e8e8e;
+        }
+
+        button {
+            background-color: #0095f6;
+            color: white;
+            padding: 10px 0;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0077e6;
+        }
+
+        .remember-me {
+            text-align: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #003569;
+        }
+
+        .signup-link {
+            font-size: 14px;
+            color: #003569;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram</h1>
+        <form id="loginForm" onsubmit="return validateLogin()">
+         
+            <input type="text" id="username" placeholder="Username" required>
+            
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Log in</button>
+        </form>
+        <div class="remember-me">
+            <label for="rememberMe"><input type="checkbox" id="rememberMe"> Remember me</label>
+        </div>
+        <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+        </div>
+    
+        <div class="signup-link">
+        Don't have an account? <a href="#">Sign up here.</a>
+        </div>
+    </div>
+    <script>
+        function validateLogin() {
+            // Replace this with your authentication logic (e.g., sending a request to a server)
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // For demonstration purposes, we'll just display a success message
+            const loginMessage = document.getElementById("loginMessage");
+            loginMessage.textContent = `Logged in as ${username}`;
+
+            // Prevent the form from actually submitting
+            return false;
+        }
+    </script>
+</body>
+</html>

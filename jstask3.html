@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <label for="fn">1st Number:</label>
+    <input type="text" id="i1" placeholder="Enter first number" /> <br/>
+    <label for="ln">2nd Number:</label>
+    <input type="text" id="i2" placeholder="Enter second number" /> <br/>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+    <div id="i3">The Result is:<br></div>
+    <script>
+        function multiply() {
+            var i1 = document.getElementById("i1").value; //"2"
+            var a = Number.parseInt(i1); //2
+            var i2 = document.getElementById("i2").value; //"4"
+            var b = Number.parseInt(i2); //4
+            var prod = a * b;
+            document.getElementById("i3").innerHTML = "The Result is:<br>" + prod;
+        }
+
+        function divide() {
+            var i1 = document.getElementById("i1").value; //"2"
+            var a = Number.parseFloat(i1); //2
+            var i2 = document.getElementById("i2").value; //"4"
+            var b = Number.parseFloat(i2); //4
+            if (b === 0) {
+                document.getElementById("i3").innerHTML = "The Result is:<br>Division by zero is undefined.";
+            } else {
+                var quotient = a / b;
+                document.getElementById("i3").innerHTML = "The Result is:<br>" + quotient;
+            }
+        }
+    </script>
+</body>
+</html>
